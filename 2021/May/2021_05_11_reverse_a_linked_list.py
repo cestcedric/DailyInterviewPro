@@ -30,10 +30,9 @@ class ListNode(object):
     # Recursive Solution      
     def reverseRecursively(self, head):
         if not head or not head.next: return head
-        next = head.next
-        start = self.reverseRecursively(next)
+        start = self.reverseRecursively(head.next)
+        head.next.next = head
         head.next = None
-        next.next = head
         return start
 
         
