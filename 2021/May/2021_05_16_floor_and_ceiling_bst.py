@@ -5,13 +5,26 @@ class Node:
         self.value = value
 
 def findCeilingFloor(root_node, k, floor=None, ceil=None):
-    pass
+    node = root_node
+
+    while node:
+        if node.value == k: return k, k
+        if node.value < k:
+            if floor is None: floor = node.value
+            else: floor = max(floor, node.value)
+            node = node.right
+        if node.value > k:
+            if ceil is None: ceil = node.value
+            else: ceil = min(ceil, node.value)
+            node = node.left
+    
+    return floor, ceil
                 
 
 
 
 def findCeilingFloorRec(root_node, k, floor=None, ceil=None):
-    if root_node is None: return floor, ceil
+    if root_node is None or floor == k and ceil == k: return floor, ceil
 
     # floor: biggest number <= k
     # if node.value > k => go left, if node.value < k go right
