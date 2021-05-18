@@ -24,19 +24,34 @@ class MaxStack1:
     def max(self):
         return self.data[-1][1]
 
-
+# All actions in time complexity O(1)
+# Space complexity between O(n) and O(2*n), depending on how often the max value increases
 class MaxStack2:
     def __init__(self):
-        pass
+        self.data = []
+        self.size = 0
+        self.maxIndex = []
+
 
     def push(self, val):
-        pass
+        if self.size == 0:
+            self.maxIndex = [0]
+        elif val > self.data[self.maxIndex[-1]]:
+            self.maxIndex.append(self.size)
+        self.data.append(val)
+        self.size += 1
+
 
     def pop(self):
-        pass
+        if self.size == 0: return None
+        if self.size == self.maxIndex[-1] + 1:
+            self.maxIndex = self.maxIndex[:-1]
+        self.size -= 1
+        return self.data.pop(-1)
+        
 
     def max(self):
-        pass
+        return self.data[self.maxIndex[-1]]
 
 s = MaxStack1()
 s.push(1)
