@@ -1,7 +1,7 @@
 class Solution(object):
     def pushDominoes(self, dominoes):
-        # O(n^2) time complexity, iterate over whole string for each step
-        # At most all dominoes fall
+        # O(n^2) time complexity, iterate over whole string as long as dominoes can fall
+        # O(n) time complexity if we assume that only one step has to be computed
         # O(n) space complexity, one list created with same size as dominoes
         pressure = 'R' in dominoes or 'L' in dominoes
         length = len(dominoes)
