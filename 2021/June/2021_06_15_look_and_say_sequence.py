@@ -5,6 +5,9 @@ from functools import lru_cache
 # 1211   # one 2, and one 1.
 # 111221 # #one 1, one 2, and two 1's.
 
+# O(n*k) time complexity: cache obviously faster, but depends on earlier calls
+# k = avg(len(output))
+# O(n) space complexity: call stack
 @lru_cache()
 def lookAndSay(n):
     if n == 1: return '1'
@@ -21,6 +24,10 @@ def lookAndSay(n):
 
     return output
 
+
+# O(n*k) time complexity: k is average length of outputs up to n
+# k = avg(len(output))
+# O(1) space complexity
 def lookAndSayIt(n):
     output = '1'
 
