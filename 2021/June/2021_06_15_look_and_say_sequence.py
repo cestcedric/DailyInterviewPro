@@ -21,8 +21,23 @@ def lookAndSay(n):
 
     return output
 
+def lookAndSayIt(n):
+    output = '1'
+
+    for _ in range(2, n+1):
+        tmp = ''
+        c, count = output[0], 1
+        for d in output[1:]:
+            if d == c: count += 1
+            else:
+                tmp += '{}{}'.format(count, c)
+                c, count = d, 1
+        tmp += '{}{}'.format(count, c)
+        output = tmp
+
+    return output
 
 
-for i in range(1, 6):
-    print(lookAndSay(i))
+for i in range(1, 31):
+    print(lookAndSay(i) == lookAndSayIt(i))
 
