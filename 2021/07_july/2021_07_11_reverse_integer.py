@@ -44,11 +44,6 @@ class Solution:
             return int(reversed)
         
 
-
-
-
-
-
 print(Solution().reverse(123))
 # 321
 print(Solution().reverse(2**31))
