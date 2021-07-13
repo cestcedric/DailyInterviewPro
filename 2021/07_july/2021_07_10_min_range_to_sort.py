@@ -7,7 +7,7 @@ def findRange(nums):
     stack = []
 
     for n in nums:
-        if stack == [] or stack[-1] < n: stack.append(n)
+        if stack == [] or stack[-1] <= n: stack.append(n)
         else:
             while stack[-1] > n: stack.pop()
             break
@@ -16,7 +16,7 @@ def findRange(nums):
     stack = []
 
     for n in nums[::-1]:
-        if stack == [] or stack[-1] > n: stack.append(n)
+        if stack == [] or stack[-1] >= n: stack.append(n)
         else:
             while stack[-1] < n: stack.pop()
             break
@@ -26,3 +26,5 @@ def findRange(nums):
 
 print(findRange([1, 7, 9, 5, 7, 8, 10]))
 # (1, 5)
+print(findRange([1,2,4,3,6,8,2,9,9,10,11]))
+# (2, 6)
