@@ -51,11 +51,28 @@ def jumpToEndDPeff(nums):
     return dp[0]
 
 
-print(jumpToEndDPeff([3, 2, 5, 1, 1, 9, 3, 4]))
+# O(n) time complexity
+# O(1) space complexity
+def jumpToEndIt(nums):
+    n = len(nums)
+
+    jumps, reachable, reachableWithJump = 0, 0, nums[0]
+
+    for i in range(0, n):
+        if reachable >= n - 1: return jumps
+        reachableWithJump = max(reachableWithJump, i + nums[i])
+        if i == reachable:
+            jumps += 1
+            reachable = reachableWithJump
+
+    return jumps
+
+
+print(jumpToEndIt([3, 2, 5, 1, 1, 9, 3, 4]))
 # 2
 
-print(jumpToEndDPeff([1,2,3]))
+print(jumpToEndIt([1,2,3]))
 
-print(jumpToEndDPeff([2,3,0,1,4]))
+print(jumpToEndIt([2,3,0,1,4]))
 
-print(jumpToEndDPeff([1,1,1,1]))
+print(jumpToEndIt([1,1,1,1]))
