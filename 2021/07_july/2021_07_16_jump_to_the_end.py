@@ -3,6 +3,7 @@ from functools import lru_cache
 # O(n^2) time complexity:
 # worst case: for every entry, you can jump at best to n - 2
 # => have to check every entry before coming to base case
+# Actually O(n) time complexity, since we cache the results for each position
 # O(n) space complexity: call stack with depth at most n
 def jumpToEndRecursion(nums):
     MAX_VALUE = 10 ** 5
