@@ -9,7 +9,7 @@ class Node:
 # O(n) space: list with nodes in level
 def minimum_level_sum(root):
     levelNodes, level = [root], 1
-    minSum, minLevel = root.val, 0
+    minSum, minLevel = root.val + 1, 0
 
     while levelNodes != []:
         nextLevel = []
