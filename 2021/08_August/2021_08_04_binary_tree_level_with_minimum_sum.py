@@ -8,7 +8,7 @@ class Node:
 # O(n) time: look at each node once
 # O(n) space: list with nodes in level
 def minimum_level_sum(root):
-    levelNodes, level = [root.left, root.right], 0
+    levelNodes, level = [root], 1
     minSum, minLevel = root.val, 0
 
     while levelNodes != []:
