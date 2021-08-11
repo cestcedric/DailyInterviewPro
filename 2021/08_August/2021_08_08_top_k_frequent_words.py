@@ -38,6 +38,18 @@ class Solution(object):
 
         return kTopWords
 
+
+    # Obviously a lot easier to read
+    # O(n * log(n)) time: always sort whole list of words
+    # O(n) space
+    def topKFrequentSlowerButMoreElegant(self, words, k):
+        counter = Counter(words)
+        
+        freqList = [(-counter[word], word) for word in counter]
+        freqList.sort()
+        
+        return [word for freq, word in freqList[:k]]
+
         
 
 
