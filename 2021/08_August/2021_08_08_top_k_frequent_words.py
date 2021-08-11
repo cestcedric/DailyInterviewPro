@@ -1,7 +1,7 @@
 from collections import Counter, defaultdict
 
 class Solution(object):
-    # O(n * log(k)) time: with high probability, O(n * log(n)) if all words have same freq
+    # O(n * k) time: with high probability, O(n * log(n)) if all words have same freq
     # O(n) space:
     # counter O(n)
     # freqToWord O(n)
