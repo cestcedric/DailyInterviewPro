@@ -5,9 +5,9 @@ class ListNode(object):
 
 
 class Solution(object):
-    # O(n) time
-    # O(n) space
-    def hasCycle(self, head):
+    # O(n) time: one pass through list
+    # O(n) space: at most n elements in visited
+    def hasCycleSet(self, head):
         visited = set()
 
         while head is not None:
@@ -16,6 +16,20 @@ class Solution(object):
             head = head.next
 
         return False
+
+
+    # O(n) time: p2 passes through set twice to catch p1 from the back
+    # O(1) space: only two pointers
+    def hasCycle2Pointers(self, head):
+        p1, p2 = head, head
+
+        while True:
+            for _ in range(2):
+                if p2 is None: return False
+                p2 = p2.next
+
+            p1 = p1.next
+            if p1 == p2: return True
 
 
 testHead = ListNode(4)
@@ -29,5 +43,5 @@ testTail = ListNode(0)
 node3.next = testTail
 testTail.next = node1
 
-print(Solution().hasCycle(testHead))
+print(Solution().hasCycle2Pointers(testHead))
 # True
