@@ -7,7 +7,8 @@ def shortest_path(file_path):
 
     for x in file_path:
         if x == '.': continue
-        if x == '..' and simplified_path != []: simplified_path.pop()
+        if x == '..':
+            if simplified_path != []: simplified_path.pop()
         else: simplified_path.append(x)
 
     return '/' + '/'.join(simplified_path)
